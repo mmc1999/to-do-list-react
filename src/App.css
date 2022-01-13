@@ -24,3 +24,12 @@ body.darkMode {
     background-image: url("./images/bg-mobile-dark.jpg");
     background-color: var(--background-colorMainDark);
 }
+
+@media all and (min-width:900px) {
+    body {
+        background-image: url("./images/bg-desktop-light.jpg");
+    }
+    body.darkMode {
+        background-image: url("./images/bg-desktop-dark.jpg");
+    }
+}

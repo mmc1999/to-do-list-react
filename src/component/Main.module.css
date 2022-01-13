@@ -21,3 +21,8 @@
     font-size: 22px;
     color: white;
 }
+@media all and (min-width:900px) {
+    .main {
+        width: 600px;
+    }
+}
