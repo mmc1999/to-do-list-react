@@ -1,0 +1,26 @@
+:root {
+    /*tema claro*/
+    --background-colorMain:#eeeeee;
+    --background-color: white;
+    --border-radius: 3px;
+    --padding:5px 10px;
+    --colorLetra:#555565;
+    --colorLetraHover:#5585e0;
+
+    /*tema oscuro*/
+    --background-colorMainDark:hsl(235, 21%, 11%);
+    --background-colorSectionDark: hsl(235, 24%, 19%);
+    --letra-colorDarkMode:hsl(236, 33%, 92%);
+}
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: var(--background-colorMain);
+    background-image: url("./images/bg-mobile-light.jpg");
+    background-position: left 0vw top 0vh;
+    background-repeat: no-repeat;
+    background-size: 100% 180px;
+}
+body.darkMode {
+    background-image: url("./images/bg-mobile-dark.jpg");
+    background-color: var(--background-colorMainDark);
+}

@@ -1,0 +1,14 @@
+.div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+}
+.div.darkMode {
+    background-color: var(--background-colorSectionDark);
+}
+.div > * {
+    opacity: 0.8;
+    font-weight: 700;
+    font-size: 11px;
+}

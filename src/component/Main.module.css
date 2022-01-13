@@ -1,0 +1,23 @@
+.main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    margin: 0 auto;
+    padding: 10px;
+}   
+.primerSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.titulo {
+    color: white;
+    letter-spacing: 10px;
+}
+.iconoModo {
+    font-size: 22px;
+    color: white;
+}

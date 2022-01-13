@@ -1,0 +1,47 @@
+.todoTemplate {
+    height: 40px;
+    padding: var(--padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--background-colorMain);
+    border-radius: var(--border-radius);
+}
+.todoTemplate.darkMode {
+    border-bottom: 2px solid var(--letra-colorDarkMode);
+}
+.divTemplate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+}
+.tarea.darkMode {
+    color: var(--letra-colorDarkMode);
+}
+.tachaTarea {
+    position: relative;
+    border-radius: 100%;
+    width: 17px;
+    height: 18px;
+    background-color: transparent;
+    border:thin solid rgb(194, 194, 194);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cheked {
+    background: rgb(91,174,255);
+    background: linear-gradient(155deg, rgba(91,174,255,1) 0%, rgba(138,124,245,1) 50%, rgba(115,28,122,1) 100%);
+}
+.cheked::before {
+    content: url("../images/icon-check.svg");
+    margin: 0px auto;
+    position: absolute;
+    bottom: 1px;    
+}
+.tareaCheked {
+    opacity: 0.6;
+    text-decoration:line-through;
+}

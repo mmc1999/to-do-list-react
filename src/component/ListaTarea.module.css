@@ -1,0 +1,40 @@
+.seccionListaDeTareas {
+    width: 100%;
+    margin-top: 20px;
+    border-radius: var(--border-radius);
+}
+.seccionListaDeTareas.darkMode {
+    background-color: var(--background-colorSectionDark);
+}
+.seccionListaDeTareas > * {
+    font-size: 11px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.5);
+    background-color: white;
+    border-radius: var(--border-radius);
+}
+.divSinTarea {
+    width: 100%;
+    background-color: white;
+    border-radius: var(--border-radius);
+}
+.sinTarea {
+    height: 40px;
+    padding: var(--padding);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid var(--background-colorMain);
+    border-bottom: 10px;
+    width: 100%;
+}
+.tarea {
+    height: 40px;
+    padding: var(--padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--background-colorMain);
+    border-radius: var(--border-radius);
+}

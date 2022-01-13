@@ -1,0 +1,39 @@
+.formulario {
+    height: 40px;
+    background-color: var(--background-color);
+    padding: var(--padding);
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    position: relative;
+}
+.formulario.darkMode {
+    background-color: var(--background-colorSectionDark);
+}
+.boton {
+    border-radius: 100%;
+    width: 17px;
+    height: 18px;
+    background-color: transparent;
+    border:thin solid rgb(194, 194, 194);
+}
+
+.input {
+    border: none;
+    outline: none;
+    color: var(--colorLetra);
+    font-weight: 700;
+    font-size: 11px;
+    font-family: 'Josefin Sans', sans-serif;
+    opacity: 0.9;
+    background-color: transparent;
+}
+.input::placeholder {
+    font-weight: 700;
+    font-size: 11px;
+    font-family: 'Josefin Sans', sans-serif;
+    opacity: 0.6;
+}
