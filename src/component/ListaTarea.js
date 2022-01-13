@@ -8,14 +8,8 @@ if(localStorage.getItem("tareas") == "" || localStorage.getItem("tareas") == nul
     localStorage.setItem("tareas", "[]")
 }
 const ListaTarea = () => {
-    const [listaDeTareas, setListaDeTareas] = useState(JSON.parse(localStorage.getItem("tareas")));
-    useEffect(() => {
-        //setListaDeTareas(JSON.parse(localStorage.getItem("tareas")))
-        console.log(listaDeTareas)
-    }, [listaDeTareas])
-    
     let algo = JSON.parse(localStorage.getItem("tareas"));
-   
+    
     return (
         <section className={listaTarea.seccionListaDeTareas}>
             {algo.length == 0 || null || "" 

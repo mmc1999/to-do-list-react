@@ -10,7 +10,7 @@ const CantidadTareasOLimpiar = ({cantidadTareas}) => {
     return (
         <div className={cantidadTareasOLimpiar.div}>
             <p>{cantidadTareas} items left</p>
-            <p ref={refLimpiar} onClick={handleClickLimpiar}>Clear completed</p>
+            <p ref={refLimpiar} onClick={handleClickLimpiar} className={cantidadTareasOLimpiar.limpiarTodo}>Clear completed</p>
         </div>
     )
 }

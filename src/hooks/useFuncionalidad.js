@@ -1,23 +1,21 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
+const initialForm = {
+    id: Date.now(),
+    tarea:"",
+    complete:false
+}
 
 let tareasRealizar = [];
 const useFuncionalidad = () => {
-    const [tareasRealizar2, setTareasRealizar] = useState(JSON.parse(localStorage.getItem("tareas")) == "" || null || undefined ? [] : JSON.parse(localStorage.getItem("tareas")));
-
-    const initialForm = {
-        id:Date.now(),
-        tarea:"",
-        complete:false
-    }
     const [form, setForm] = useState(initialForm);
+
+  
 
     const guardarLS = () => {
         tareasRealizar=JSON.parse(localStorage.getItem("tareas")) == "" || null || undefined ? [] : JSON.parse(localStorage.getItem("tareas"));
         tareasRealizar.push(form);
-
         localStorage.setItem("tareas", JSON.stringify(tareasRealizar));
-        setTareasRealizar(tareasRealizar);
     }
 
     const handleClange = (e) => {

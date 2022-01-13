@@ -1,18 +1,17 @@
-import React from 'react';
-import { useRef } from 'react/cjs/react.development';
+import React, { useRef } from 'react';
 import moduleOrdenar from "./ultimaSeccionOrdenar.module.css"
 
 const UltimaSeccionOrdenar = () => {
-    let refDiv = useRef(null)
-
+    let refDivv = useRef(null)
+    
     const handleClick = () => {
-        if(refDiv.current) {
+        if(refDivv.current) {
             window.location.reload(true);
         }
     }
 
     return (
-        <div ref={refDiv} className={moduleOrdenar.div} onClick={handleClick}>
+        <div ref={refDivv} className={moduleOrdenar.div} onClick={handleClick}>
             <p>Actualizar</p>
         </div>
     )

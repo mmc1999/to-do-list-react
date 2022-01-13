@@ -19,6 +19,7 @@
     height: 18px;
     background-color: transparent;
     border:thin solid rgb(194, 194, 194);
+    cursor: pointer;
 }
 
 .input {

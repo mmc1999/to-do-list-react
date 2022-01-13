@@ -6,25 +6,28 @@ const useChequear = () => {
     const refContenido = useRef(null);
 
     const handleClick = () => {
-        completado == false ? setCompletado(true) : setCompletado(false);
+        completado == false ? setCompletado(true)  : setCompletado(false);
         let tareas = JSON.parse(localStorage.getItem("tareas"));
+
+        //funcion para tachar la tarea
         tareas.forEach(el => {
-            if(refDiv.current.id === el.id && refContenido.current.textContent === el.tarea && el.complete == false){
+            //console.log(refDiv.current.id == el.id && refContenido.current.textContent == el.tarea && el.complete == false)
+            if(refDiv.current.id == el.id && refContenido.current.textContent == el.tarea && el.complete == false){
+                //setCompletado(true)
                 el.complete = true;
-                console.log(tareas)
-                localStorage.setItem("tareas", JSON.stringify(tareas))
-            }else if(refDiv.current.id === el.id && refContenido.current.textContent === el.tarea && el.complete == true) {
+                localStorage.setItem("tareas", JSON.stringify(tareas));
+            }else if(refDiv.current.id == el.id && refContenido.current.textContent == el.tarea && el.complete == true) {
+                //setCompletado(false);
                 el.complete = false;
-                console.log(tareas)
-                localStorage.setItem("tareas", JSON.stringify(tareas))
+                localStorage.setItem("tareas", JSON.stringify(tareas));
             }
         });
-        
     }
+
+    //funcion para borrar la tarea
     const handleClickDiv = () => {
-        let tareas = Object.values(JSON.parse(localStorage.getItem("tareas")));
+        let tareas = JSON.parse(localStorage.getItem("tareas"));
         let filtrarTarea = tareas.filter(tarea => tarea.id != refDiv.current.id);
-        //console.log(filtrarTarea)
         localStorage.setItem("tareas", JSON.stringify(filtrarTarea));
     }
 

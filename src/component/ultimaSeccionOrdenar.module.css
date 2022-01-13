@@ -8,10 +8,12 @@
 }
 .div p {
     opacity: 0.8;
+    cursor: pointer;
 }
 .div p:hover {
     color: #3A7CFD;
 }
 .div:hover {
     padding: 2px 5px ;
+    cursor: pointer;
 }
