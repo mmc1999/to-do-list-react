@@ -6,7 +6,7 @@ const useFuncionalidad = () => {
     const [tareasRealizar2, setTareasRealizar] = useState(JSON.parse(localStorage.getItem("tareas")) == "" || null || undefined ? [] : JSON.parse(localStorage.getItem("tareas")));
 
     const initialForm = {
-        id:uuid.v1(),
+        id:Date.now(),
         tarea:"",
         complete:false
     }
