@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
-//const [tareasRealizar, setTareasRealizar] = useState([])
+
 
 let tareasRealizar = [];
 const useFuncionalidad = () => {
+    const [tareasRealizar2, setTareasRealizar] = useState(JSON.parse(localStorage.getItem("tareas")) == "" || null || undefined ? [] : JSON.parse(localStorage.getItem("tareas")));
+
     const initialForm = {
         id:uuid.v1(),
         tarea:"",
@@ -11,10 +13,11 @@ const useFuncionalidad = () => {
     const [form, setForm] = useState(initialForm);
 
     const guardarLS = () => {
-        tareasRealizar=JSON.parse(localStorage.getItem("tareas")) || [];
+        tareasRealizar=JSON.parse(localStorage.getItem("tareas")) == "" || null || undefined ? [] : JSON.parse(localStorage.getItem("tareas"));
         tareasRealizar.push(form);
+
         localStorage.setItem("tareas", JSON.stringify(tareasRealizar));
-        console.log(localStorage.getItem("tareas"))
+        setTareasRealizar(tareasRealizar);
     }
 
     const handleClange = (e) => {

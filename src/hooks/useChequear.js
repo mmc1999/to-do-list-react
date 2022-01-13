@@ -22,7 +22,7 @@ const useChequear = () => {
         
     }
     const handleClickDiv = () => {
-        let tareas = JSON.parse(localStorage.getItem("tareas"));
+        let tareas = Object.values(JSON.parse(localStorage.getItem("tareas")));
         let filtrarTarea = tareas.filter(tarea => tarea.id != refDiv.current.id);
         //console.log(filtrarTarea)
         localStorage.setItem("tareas", JSON.stringify(filtrarTarea));

@@ -12,3 +12,6 @@
 .div p:hover {
     color: #3A7CFD;
 }
+.div:hover {
+    padding: 2px 5px ;
+}
