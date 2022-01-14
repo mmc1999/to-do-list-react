@@ -1,27 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import useChequear from '../hooks/useChequear';
 import CantidadTareasOLimpiar from './CantidadTareasOLimpiar';
-import listaTarea from "./ListaTarea.module.css";
+import listaTareaModule from "./ListaTarea.module.css";
 import Tarea from './Tarea';
 import UltimaSeccionOrdenar from './UltimaSeccionOrdenar';
 
 if(localStorage.getItem("tareas") == "" || localStorage.getItem("tareas") == null) {
     localStorage.setItem("tareas", "[]")
 }
-const ListaTarea = () => {
-    let algo = JSON.parse(localStorage.getItem("tareas"));
-    
+const ListaTarea = ({tareas, darkMode}) => {
     return (
-        <section className={listaTarea.seccionListaDeTareas}>
-            {algo.length == 0 || null || "" 
-            ?    <div className={listaTarea.divSinTarea}><p className={listaTarea.sinTarea}>Sin tareas pendientes</p></div>
-            : algo.map(el => 
-                <Tarea key={el.id} tarea={el.tarea} complete={el.complete} id={el.id} />    
+        <section className={darkMode ? listaTareaModule.seccionListaDeTareasDarkMode : listaTareaModule.seccionListaDeTareas}>
+            {tareas.length == 0 || null || "" 
+            ?   <div className={darkMode ? listaTareaModule.divdarkMode : listaTareaModule.divSinTarea}>
+                    <p className={darkMode ? listaTareaModule.sinTareaDarkMode : listaTareaModule.sinTarea}>Sin tareas pendientes</p>
+                </div>
+            : tareas.map(el => 
+                <Tarea key={el.id} tarea={el.tarea} complete={el.complete} tareas={tareas} id={el.id} darkMode={darkMode} /> 
             )
             }
             {
-                algo.length == 0 ? "" : <CantidadTareasOLimpiar cantidadTareas={algo.length} />
+                tareas.length == 0 ? "" : <CantidadTareasOLimpiar cantidadTareas={tareas.length} tareas={tareas} darkMode={darkMode}  />
             }
-            <UltimaSeccionOrdenar tareas={algo} />
+            <UltimaSeccionOrdenar darkMode={darkMode} />
         </section>
     )
 }

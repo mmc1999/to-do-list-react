@@ -7,8 +7,15 @@
     border-bottom: 2px solid var(--background-colorMain);
     border-radius: var(--border-radius);
 }
-.todoTemplate.darkMode {
+.todoTemplateDarkMode {
+    background-color: var(--background-colorSectionDark);
     border-bottom: 2px solid var(--letra-colorDarkMode);
+    height: 40px;
+    padding: var(--padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: var(--border-radius);
 }
 .divTemplate {
     display: flex;
@@ -17,8 +24,12 @@
     flex-direction: row;
     gap: 10px;
 }
-.tarea.darkMode {
+.tareaDarkMode {
+    font-size: 11px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
     color: var(--letra-colorDarkMode);
+    opacity: 0.9;
 }
 .tachaTarea {
     position: relative;

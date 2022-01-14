@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import moduleOrdenar from "./ultimaSeccionOrdenar.module.css"
 
-const UltimaSeccionOrdenar = () => {
+const UltimaSeccionOrdenar = ({darkMode}) => {
     let refDivv = useRef(null)
     
     const handleClick = () => {
@@ -11,8 +11,8 @@ const UltimaSeccionOrdenar = () => {
     }
 
     return (
-        <div ref={refDivv} className={moduleOrdenar.div} onClick={handleClick}>
-            <p>Actualizar</p>
+        <div ref={refDivv} className={darkMode ? moduleOrdenar.divDarkMode : moduleOrdenar.div} onClick={handleClick}>
+            <p className={darkMode ? moduleOrdenar.actualizarDarkMode : moduleOrdenar.actualizar}>Actualizar</p>
         </div>
     )
 }

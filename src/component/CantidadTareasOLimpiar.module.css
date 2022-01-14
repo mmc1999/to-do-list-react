@@ -4,14 +4,34 @@
     align-items: center;
     padding: 5px 20px;
 }
-.div.darkMode {
+.divDarkMode {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
     background-color: var(--background-colorSectionDark);
 }
-.div > * {
+.tareas {
     opacity: 0.8;
     font-weight: 700;
     font-size: 11px;
 }
+.tareasDarmode {
+    opacity: 0.8;
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--letra-colorDarkMode);
+    opacity: 0.9;
+
+}
 .limpiarTodo {
+    cursor: pointer;
+}
+.limpiarTodoDarkMode {
+    opacity: 0.8;
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--letra-colorDarkMode);
+    opacity: 0.9;
     cursor: pointer;
 }

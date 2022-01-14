@@ -3,10 +3,21 @@
     margin-top: 20px;
     border-radius: var(--border-radius);
 }
-.seccionListaDeTareas.darkMode {
-    background-color: var(--background-colorSectionDark);
+.seccionListaDeTareasDarkMode {
+
+    width: 100%;
+    margin-top: 20px;
+    border-radius: var(--border-radius);
 }
 .seccionListaDeTareas > * {
+    font-size: 11px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.5);
+    background-color: white;
+    border-radius: var(--border-radius);
+}
+.divdarkMode {
     font-size: 11px;
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 700;
@@ -19,6 +30,11 @@
     background-color: white;
     border-radius: var(--border-radius);
 }
+.divSinTareaDarkMode {
+    width: 100%;
+    background-color: var(--background-colorSectionDark);
+    border-radius: var(--border-radius);
+}
 .sinTarea {
     height: 40px;
     padding: var(--padding);
@@ -28,6 +44,18 @@
     border-bottom: 2px solid var(--background-colorMain);
     border-bottom: 10px;
     width: 100%;
+}
+.sinTareaDarkMode {
+    height: 40px;
+    padding: var(--padding);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid var(--background-colorMain);
+    border-bottom: 10px;
+    width: 100%;
+    background-color: var(--background-colorSectionDark);
+    color: var(--letra-colorDarkMode);
 }
 .tarea {
     height: 40px;

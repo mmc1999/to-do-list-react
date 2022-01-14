@@ -6,8 +6,25 @@
     margin-top: 30px;
     padding: 5px;
 }
-.div p {
+.divDarkMode {
+    background-color: var(--background-colorSectionDark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+    padding: 5px;
+}
+.actualizar {
     opacity: 0.8;
+    cursor: pointer;
+}
+.actualizarDarkMode {
+    opacity: 0.8;
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--letra-colorDarkMode);
+    opacity: 0.9;
     cursor: pointer;
 }
 .div p:hover {
