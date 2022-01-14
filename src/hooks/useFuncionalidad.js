@@ -35,6 +35,7 @@ const useFuncionalidad = () => {
     }
 
     return {
+        form,
         tareas,
         handleClange,
         handleSubmit

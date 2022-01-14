@@ -5,11 +5,12 @@ import ListaTarea from './ListaTarea';
 
 const FormAgregarTarea = ({darkMode}) => {
     const {
+        form,
         tareas,
         handleClange,
         handleSubmit
     } = useFuncionalidad();
-    
+
     return (
         <>
             <form className={darkMode ? moduleForm.formularioDarkMode : moduleForm.formulario} onSubmit={handleSubmit}>
@@ -18,7 +19,7 @@ const FormAgregarTarea = ({darkMode}) => {
                     type="text" 
                     placeholder='Crea una nueva tarea' 
                     name='tarea' 
-                    value={tareas.tarea} 
+                    value={form.tarea} 
                     className={darkMode ? moduleForm.inputDarkMode : moduleForm.input} 
                     onChange={handleClange}
                     />

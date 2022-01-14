@@ -24,16 +24,14 @@ const useChequear = (tareas, complete) => {
 
     //funcion para borrar la tarea
     const handleClickDiv = () => {
-        let tareaFiltrada = [];
-        tareas.forEach((el,indice) => {
+        filtrar.forEach((el,indice) => {
+            console.log(filtrar)
             if(el.id == refDiv.current.id) {
-                tareas.splice(indice, 1);
-                tareaFiltrada = tareas; 
+                setFiltrar(tareas.splice(indice, 1))
             }
         })
-        setFiltrar(tareaFiltrada);
         console.log(filtrar)
-        localStorage.setItem("tareas", JSON.stringify(tareaFiltrada));
+        localStorage.setItem("tareas", JSON.stringify(filtrar));
     }
 
     return { 

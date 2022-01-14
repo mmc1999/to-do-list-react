@@ -22,7 +22,7 @@ const ListaTarea = ({tareas, darkMode}) => {
             {
                 tareas.length == 0 ? "" : <CantidadTareasOLimpiar cantidadTareas={tareas.length} tareas={tareas} darkMode={darkMode}  />
             }
-            <UltimaSeccionOrdenar darkMode={darkMode} />
+            <UltimaSeccionOrdenar  darkMode={darkMode} />
         </section>
     )
 }

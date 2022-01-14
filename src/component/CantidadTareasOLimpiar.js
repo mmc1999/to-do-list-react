@@ -7,7 +7,8 @@ const CantidadTareasOLimpiar = ({cantidadTareas, tareas, darkMode}) => {
     let {
         refLimpiar,
         handleClickLimpiar
-    } = useLimpiarTodo()
+    } = useLimpiarTodo(tareas)
+    console.log(tareas)
     return (
         <>
             <div className={darkMode ? cantidadTareasOLimpiar.divDarkMode : cantidadTareasOLimpiar.div}>
