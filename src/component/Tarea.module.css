@@ -41,10 +41,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 .cheked {
     background: rgb(91,174,255);
     background: linear-gradient(155deg, rgba(91,174,255,1) 0%, rgba(138,124,245,1) 50%, rgba(115,28,122,1) 100%);
+    cursor: pointer;
 }
 .cheked::before {
     content: url("../images/icon-check.svg");
@@ -55,4 +57,7 @@
 .tareaCheked {
     opacity: 0.6;
     text-decoration:line-through;
+}
+.btnborrarTarea {
+    cursor: pointer;
 }

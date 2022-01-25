@@ -2,7 +2,7 @@ import React, {useRef} from 'react';
 import moduleTarea from "./Tarea.module.css";
 import imagen from "../images/icon-cross.svg"
 import useChequear from '../hooks/useChequear';
-import useFuncionalidad from '../hooks/useFuncionalidad';
+
 
 const Tarea = ({tareas,tarea, complete, id, darkMode, handleClickDiv}) => {
     const refDiv = useRef(null);

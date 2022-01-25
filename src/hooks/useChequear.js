@@ -1,12 +1,12 @@
 import React, { useRef, useState } from 'react';
 
-const useChequear = (tareasRealizar, complete, refDiv) => {
+const useChequear = (tareas, complete, refDiv) => {
     const [completado, setCompletado] = useState(complete);
     const refContenido = useRef(null);
     //const refDiv = useRef(null);
 
     const handleClick = () => {
-        tareasRealizar.forEach(el => {
+        tareas.forEach(el => {
             if(el.id == refDiv.current.id && el.complete == false){
                 setCompletado(true)
                 el.complete = true;
