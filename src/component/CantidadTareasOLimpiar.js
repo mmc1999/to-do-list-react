@@ -1,14 +1,8 @@
 import React from 'react';
-import useLimpiarTodo from '../hooks/useLimpiarTodo';
 import cantidadTareasOLimpiar from "./CantidadTareasOLimpiar.module.css";
-import Tarea from './Tarea';
 
-const CantidadTareasOLimpiar = ({cantidadTareas, tareas, darkMode}) => {
-    let {
-        refLimpiar,
-        handleClickLimpiar
-    } = useLimpiarTodo(tareas)
-    console.log(tareas)
+const CantidadTareasOLimpiar = ({cantidadTareas, darkMode, refLimpiar, handleClickLimpiar}) => {
+
     return (
         <>
             <div className={darkMode ? cantidadTareasOLimpiar.divDarkMode : cantidadTareasOLimpiar.div}>

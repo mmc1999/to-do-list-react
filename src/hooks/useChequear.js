@@ -1,13 +1,12 @@
 import React, { useRef, useState } from 'react';
 
-const useChequear = (tareas, complete) => {
+const useChequear = (tareasRealizar, complete, refDiv) => {
     const [completado, setCompletado] = useState(complete);
-    const refDiv = useRef(null);
     const refContenido = useRef(null);
-    const [filtrar, setFiltrar] = useState(tareas)
-    
+    //const refDiv = useRef(null);
+
     const handleClick = () => {
-        filtrar.forEach(el => {
+        tareasRealizar.forEach(el => {
             if(el.id == refDiv.current.id && el.complete == false){
                 setCompletado(true)
                 el.complete = true;
@@ -22,24 +21,9 @@ const useChequear = (tareas, complete) => {
         });
     }
 
-    //funcion para borrar la tarea
-    const handleClickDiv = () => {
-        filtrar.forEach((el,indice) => {
-            console.log(filtrar)
-            if(el.id == refDiv.current.id) {
-                setFiltrar(tareas.splice(indice, 1))
-            }
-        })
-        console.log(filtrar)
-        localStorage.setItem("tareas", JSON.stringify(filtrar));
-    }
-
     return { 
         handleClick, 
         completado, 
-        filtrar,
-        refDiv, 
-        handleClickDiv,
         refContenido
     }
 }

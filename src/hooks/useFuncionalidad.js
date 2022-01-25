@@ -1,10 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import useChequear from './useChequear';
-
-
-let tareasRealizar = JSON.parse(localStorage.getItem("tareas")) == "" || null || undefined ? [] : JSON.parse(localStorage.getItem("tareas"));
+import React, {useState, useRef} from 'react';
 
 const useFuncionalidad = () => {
+    let tareasRealizar = JSON.parse(localStorage.getItem("tareas")) == "" || null || undefined ? [] : JSON.parse(localStorage.getItem("tareas"));
     const initialForm = {
         id: Date.now(),
         tarea:"",
@@ -12,7 +9,8 @@ const useFuncionalidad = () => {
     }
     const [form, setForm] = useState(initialForm);
     const [tareas, setTareas] = useState(tareasRealizar);
-
+    const refLimpiar = useRef(null);
+    
     const guardarLS = () => {
         tareasRealizar.push(form);
         localStorage.setItem("tareas", JSON.stringify(tareasRealizar));
@@ -29,16 +27,39 @@ const useFuncionalidad = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        //handleClange(e)
+        handleClange(e);
         guardarLS();
         setForm(initialForm);
     }
+
+
+   
+    const handleClickDiv = (refDiv) => {
+        tareas.forEach((el, indice) => {
+            if(el.id == refDiv.current.id) {
+                tareasRealizar.splice(indice, 1)
+                localStorage.setItem("tareas", JSON.stringify(tareasRealizar));
+            }
+        })
+        setTareas(tareasRealizar);
+        console.log(tareas)
+    }
+    
+    const handleClickLimpiar = () => {
+        setTareas([])
+        localStorage.removeItem("tareas");
+        localStorage.setItem("tareas", "[]");
+        console.log(tareas)
+    }    
 
     return {
         form,
         tareas,
         handleClange,
-        handleSubmit
+        handleSubmit,
+        handleClickDiv,
+        refLimpiar,
+        handleClickLimpiar,
     }
 }
 
