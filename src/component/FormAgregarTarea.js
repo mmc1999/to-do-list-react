@@ -61,7 +61,7 @@ const FormAgregarTarea = ({darkMode}) => {
                         handleClickLimpiar={handleClickLimpiar}
                     />
                 }
-                <UltimaSeccionOrdenar  darkMode={darkMode} />
+                {/*<UltimaSeccionOrdenar  darkMode={darkMode} />*/}
             </section>
         </>
         
