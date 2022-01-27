@@ -1,14 +1,14 @@
-import React, {useRef} from 'react';
+import React, { useContext } from 'react';
 import useFuncionalidad from '../hooks/useFuncionalidad';
 import moduleForm from "./FormAgregarTarea.module.css"
 import listaTareaModule from "./ListaTarea.module.css";
 import Tarea from './Tarea';
 import CantidadTareasOLimpiar from './CantidadTareasOLimpiar';
-import UltimaSeccionOrdenar from './UltimaSeccionOrdenar';
+import ThemeContext from '../context/TemaContext';
 
 
-const FormAgregarTarea = ({darkMode}) => {
-    
+const FormAgregarTarea = () => {
+    const {darkMode} = useContext(ThemeContext);
     const {
         form,
         tareas,
@@ -46,7 +46,6 @@ const FormAgregarTarea = ({darkMode}) => {
                         complete={el.complete} 
                         tareas={tareas} 
                         id={el.id} 
-                        darkMode={darkMode}  
                         handleClickDiv={handleClickDiv}
                     /> 
                 )
@@ -56,7 +55,6 @@ const FormAgregarTarea = ({darkMode}) => {
                     ? "" 
                     : <CantidadTareasOLimpiar 
                         cantidadTareas={tareas.length} 
-                        darkMode={darkMode}  
                         refLimpiar={refLimpiar}
                         handleClickLimpiar={handleClickLimpiar}
                     />

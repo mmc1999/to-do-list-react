@@ -1,10 +1,12 @@
-import React, {useRef} from 'react';
+import React, {useContext, useRef} from 'react';
 import moduleTarea from "./Tarea.module.css";
 import imagen from "../images/icon-cross.svg"
 import useChequear from '../hooks/useChequear';
+import TemaContext from '../context/TemaContext';
 
 
-const Tarea = ({tareas,tarea, complete, id, darkMode, handleClickDiv}) => {
+const Tarea = ({tareas,tarea, complete, id, handleClickDiv}) => {
+    const {darkMode} = useContext(TemaContext)
     const refDiv = useRef(null);
     let { 
         handleClick, 

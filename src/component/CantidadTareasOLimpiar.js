@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import TemaContext from '../context/TemaContext';
 import cantidadTareasOLimpiar from "./CantidadTareasOLimpiar.module.css";
 
-const CantidadTareasOLimpiar = ({cantidadTareas, darkMode, refLimpiar, handleClickLimpiar}) => {
-
+const CantidadTareasOLimpiar = ({cantidadTareas, refLimpiar, handleClickLimpiar}) => {
+    const {darkMode} = useContext(TemaContext)
     return (
         <>
             <div className={darkMode ? cantidadTareasOLimpiar.divDarkMode : cantidadTareasOLimpiar.div}>
