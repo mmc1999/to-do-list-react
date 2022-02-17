@@ -1,14 +1,14 @@
 import React, {useState, useRef} from 'react';
 
 const useFuncionalidad = () => {
-    let tareasRealizar = JSON.parse(localStorage.getItem("tareas")) == "" || null || undefined ? [] : JSON.parse(localStorage.getItem("tareas"));
+    let tareasRealizar = JSON.parse(localStorage.getItem("tareas")) == "" || "null" || null || undefined ? [] : JSON.parse(localStorage.getItem("tareas"));
     const initialForm = {
         id: Date.now(),
         tarea:"",
         complete:false
     }
     const [form, setForm] = useState(initialForm);
-    const [tareas, setTareas] = useState(tareasRealizar || []);
+    const [tareas, setTareas] = useState(tareasRealizar);
     const refLimpiar = useRef(null);
     
     const guardarLS = () => {
