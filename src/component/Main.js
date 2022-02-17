@@ -5,6 +5,7 @@ import Header from './Header';
 import moduleMain from "./Main.module.css"
 
 const Main = () => {
+    //localStorage.setItem("tareas", "[]") 
     return (
         <main className={moduleMain.main}>
             <ThemeProvider>

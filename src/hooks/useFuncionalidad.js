@@ -1,9 +1,10 @@
 import React, {useState, useRef} from 'react';
 
 const useFuncionalidad = () => {
-    let tareasRealizar = JSON.parse(localStorage.getItem("tareas")) == "" || null || undefined 
-    ? []
+    let tareasRealizar = JSON.parse(localStorage.getItem("tareas")) == ""  || null 
+    ? [] 
     : JSON.parse(localStorage.getItem("tareas"));
+    localStorage.setItem("tareas", JSON.stringify(tareasRealizar)) 
     const initialForm = {
         id: Date.now(),
         tarea:"",
