@@ -8,7 +8,7 @@ const useFuncionalidad = () => {
         complete:false
     }
     const [form, setForm] = useState(initialForm);
-    const [tareas, setTareas] = useState(tareasRealizar);
+    const [tareas, setTareas] = useState(tareasRealizar || []);
     const refLimpiar = useRef(null);
     
     const guardarLS = () => {
