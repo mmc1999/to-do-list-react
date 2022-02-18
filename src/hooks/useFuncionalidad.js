@@ -1,7 +1,7 @@
 import React, {useState, useRef} from 'react';
 
 const useFuncionalidad = () => {
-    let tareasRealizar = JSON.parse(localStorage.getItem("tareas")) == ""  || null 
+    let tareasRealizar = Boolean(JSON.parse(localStorage.getItem("tareas"))) == false
     ? [] 
     : JSON.parse(localStorage.getItem("tareas"));
     localStorage.setItem("tareas", JSON.stringify(tareasRealizar)) 
@@ -41,6 +41,9 @@ const useFuncionalidad = () => {
         tareas.forEach((el, indice) => {
             if(el.id == refDiv.current.id) {
                 tareasRealizar.splice(indice, 1)
+                localStorage.setItem("tareas", JSON.stringify(tareasRealizar));
+            } else if(el.id == refDiv.current.id && tareasRealizar.lenght == 1) {
+                tareasRealizar = [];
                 localStorage.setItem("tareas", JSON.stringify(tareasRealizar));
             }
         })
