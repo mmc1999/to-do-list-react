@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState} from 'react';
 
 const useFuncionalidad = () => {
     let tareasRealizar = Boolean(JSON.parse(localStorage.getItem("tareas"))) == false
@@ -12,7 +12,6 @@ const useFuncionalidad = () => {
     }
     const [form, setForm] = useState(initialForm);
     const [tareas, setTareas] = useState(tareasRealizar);
-    const refLimpiar = useRef(null);
     
     const guardarLS = () => {
         tareasRealizar.push(form);
@@ -20,7 +19,7 @@ const useFuncionalidad = () => {
         setTareas(tareasRealizar)
     }
     
-    const handleClange = (e) => {
+    const handleChange = (e) => {
         const {name, value} = e.target;
         setForm({
             ...form,
@@ -30,41 +29,31 @@ const useFuncionalidad = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        handleClange(e);
+        handleChange(e);
         guardarLS();
         setForm(initialForm);
     }
 
 
    
-    const handleClickDiv = (refDiv) => {
-        tareas.forEach((el, indice) => {
-            if(el.id == refDiv.current.id) {
-                tareasRealizar.splice(indice, 1)
-                localStorage.setItem("tareas", JSON.stringify(tareasRealizar));
-            } else if(el.id == refDiv.current.id && tareasRealizar.lenght == 1) {
-                tareasRealizar = [];
-                localStorage.setItem("tareas", JSON.stringify(tareasRealizar));
-            }
-        })
-        setTareas(tareasRealizar);
-        console.log(tareas)
+    const handleClickDiv = (elemento) => {
+        let nuevoArray = tareas.filter(el => el.id !== elemento.id);
+        localStorage.setItem("tareas", JSON.stringify(nuevoArray));
+        setTareas(nuevoArray);
     }
     
     const handleClickLimpiar = () => {
         setTareas([])
         localStorage.removeItem("tareas");
         localStorage.setItem("tareas", "[]");
-        console.log(tareas)
     }    
 
     return {
         form,
         tareas,
-        handleClange,
+        handleChange,
         handleSubmit,
         handleClickDiv,
-        refLimpiar,
         handleClickLimpiar,
     }
 }

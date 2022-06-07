@@ -5,23 +5,26 @@ import useChequear from '../hooks/useChequear';
 import TemaContext from '../context/TemaContext';
 
 
-const Tarea = ({tareas,tarea, complete, id, handleClickDiv}) => {
-    const {darkMode} = useContext(TemaContext)
-    const refDiv = useRef(null);
+const Tarea = ({el, tareas, handleClickDiv}) => {
+    const {darkMode} = useContext(TemaContext);
+    let {
+        id,
+        tarea,
+        complete
+    } = el
     let { 
         handleClick, 
         completado, 
-        refContenido
-    } = useChequear(tareas, complete, refDiv);
+    } = useChequear(tareas, complete, id);
  
     return (
-        <div ref={refDiv} className={darkMode ? moduleTarea.todoTemplateDarkMode : moduleTarea.todoTemplate} id={id} >
+        <div className={darkMode ? moduleTarea.todoTemplateDarkMode : moduleTarea.todoTemplate}  >
             <div className={moduleTarea.divTemplate} >
                 <div onClick={handleClick} className={`${moduleTarea.tachaTarea} ${completado && moduleTarea.cheked }`}></div>
                 <p className={`${darkMode ? moduleTarea.tareaDarkMode : moduleTarea.tarea} ${completado && moduleTarea.tareaCheked}`} 
-                ref={refContenido}>{tarea}</p>
+                >{tarea}</p>
             </div>
-            <img src={imagen} alt="icono de cierre" className={moduleTarea.btnborrarTarea} onClick={() => handleClickDiv(refDiv)}/>
+            <img src={imagen} alt="icono de cierre" className={moduleTarea.btnborrarTarea} onClick={() => handleClickDiv(el)}/>
         </div>
     )
 }

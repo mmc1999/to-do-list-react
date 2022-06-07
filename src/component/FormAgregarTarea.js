@@ -12,15 +12,12 @@ const FormAgregarTarea = () => {
     const {
         form,
         tareas,
-        handleClange,
+        handleChange,
         handleSubmit,
-        refLimpiar,
         handleClickLimpiar,
         handleClickDiv
     } = useFuncionalidad();
 
-    console.log(tareas)
-    
     return (
         <>
             <form className={darkMode ? moduleForm.formularioDarkMode : moduleForm.formulario} onSubmit={handleSubmit}>
@@ -31,7 +28,7 @@ const FormAgregarTarea = () => {
                     name='tarea' 
                     value={form.tarea} 
                     className={darkMode ? moduleForm.inputDarkMode : moduleForm.input} 
-                    onChange={handleClange}
+                    onChange={handleChange}
                     />
             </form>
             <section className={darkMode ? listaTareaModule.seccionListaDeTareasDarkMode : listaTareaModule.seccionListaDeTareas}>
@@ -42,10 +39,8 @@ const FormAgregarTarea = () => {
                 : tareas.map(el => 
                     <Tarea 
                         key={el.id} 
-                        tarea={el.tarea} 
-                        complete={el.complete} 
+                        el={el}
                         tareas={tareas} 
-                        id={el.id} 
                         handleClickDiv={handleClickDiv}
                     /> 
                 )
@@ -55,11 +50,9 @@ const FormAgregarTarea = () => {
                     ? "" 
                     : <CantidadTareasOLimpiar 
                         cantidadTareas={tareas.length} 
-                        refLimpiar={refLimpiar}
                         handleClickLimpiar={handleClickLimpiar}
                     />
                 }
-                {/*<UltimaSeccionOrdenar  darkMode={darkMode} />*/}
             </section>
         </>
         

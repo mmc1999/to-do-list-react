@@ -1,22 +1,18 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 
-const useChequear = (tareas, complete, refDiv) => {
+const useChequear = (tareas, complete, id) => {
     const [completado, setCompletado] = useState(complete);
-    const refContenido = useRef(null);
-    //const refDiv = useRef(null);
 
     const handleClick = () => {
         tareas.forEach(el => {
-            if(el.id == refDiv.current.id && el.complete == false){
+            if(el.id == id && el.complete == false){
                 setCompletado(true)
                 el.complete = true;
                 localStorage.setItem("tareas", JSON.stringify(tareas));
-                console.log(completado)
-            }else if(el.id == refDiv.current.id && el.complete == true) {
+            }else if(el.id == id && el.complete == true) {
                 setCompletado(false)
                 el.complete = false;
                 localStorage.setItem("tareas", JSON.stringify(tareas));
-                console.log(completado)
             }
         });
     }
@@ -24,7 +20,6 @@ const useChequear = (tareas, complete, refDiv) => {
     return { 
         handleClick, 
         completado, 
-        refContenido
     }
 }
 
