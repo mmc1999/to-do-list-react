@@ -16,7 +16,7 @@ const useFuncionalidad = () => {
     const guardarLS = () => {
         tareasRealizar.push(form);
         localStorage.setItem("tareas", JSON.stringify(tareasRealizar));
-        setTareas(tareasRealizar)
+        setTareas([...tareas, form])
     }
     
     const handleChange = (e) => {
