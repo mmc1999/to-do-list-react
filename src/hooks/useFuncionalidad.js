@@ -4,6 +4,7 @@ const useFuncionalidad = (complete) => {
     let tareasRealizar = Boolean(JSON.parse(localStorage.getItem("tareas"))) == false
     ? [] 
     : JSON.parse(localStorage.getItem("tareas"));
+
     localStorage.setItem("tareas", JSON.stringify(tareasRealizar));
     const initialForm = {
         id: Date.now(),
@@ -18,7 +19,7 @@ const useFuncionalidad = (complete) => {
         try {
             let data = await fetch("http://localhost:8080/api/tareas");
             let res = await data.json();
-            console.log(res)
+            if(Object.keys(res).length === 0) return setTareas([])
             setTareas(res);
         } catch (error) {
             console.log(error);
@@ -49,35 +50,44 @@ const useFuncionalidad = (complete) => {
             let data = await fetch(`http://localhost:8080/${id}`, {
                 method:"PUT",
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(tarea)
+                body: JSON.stringify({
+                    id:form.id,
+                    tarea:tarea.tarea,
+                    complete: tarea.complete ? false : true
+                })
             });
             let res = await data.json();
-            cambiarEstado(res)
+            setTareas(res);
+            cambiarEstado(res);
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const deleteTarea = async (el) => {
+        try {
+            let data = await fetch(`http://localhost:8080/${el.id}`, {method:"DELETE"});
+            let res = await data.json();
+            setTareas(res);
         } catch (error) {
             console.log(error)
         }
     }
 
     const cambiarEstado = (tarea) => {
-        console.log(tarea)
-        /*tareas.forEach(el => {
+        tareas.forEach(el => {
             if(el.id === tarea.id && tarea.complete === false){
-                el.complete = true
+                console.log("complete true")
                 setCompletado(true);
                 localStorage.setItem("tareas", JSON.stringify(tareas));
             } else if(el.id === tarea.id && tarea.complete === true) {
-                el.complete = false
+                console.log("complete false")
                 setCompletado(false);
                 localStorage.setItem("tareas", JSON.stringify(tareas));
             }
-        });*/
+        });
     }
-    const guardarLS = () => {
-        tareasRealizar.push(form);
-        localStorage.setItem("tareas", JSON.stringify(tareasRealizar));
-        setTareas([...tareas, form]);
-    }
-    
+
     const handleChange = (e) => {
         const {name, value} = e.target;
         setForm({
@@ -86,27 +96,26 @@ const useFuncionalidad = (complete) => {
         })
     }
 
-    const handleClickDiv = (elemento) => {
-        let nuevoArray = tareas.filter(el => el.id !== elemento.id);
-        localStorage.setItem("tareas", JSON.stringify(nuevoArray));
-        setTareas(nuevoArray);
-    }
-    
-    const handleClickLimpiar = () => {
-        setTareas([])
-        localStorage.removeItem("tareas");
-        localStorage.setItem("tareas", "[]");
+    const handleClickLimpiar = async () => {
+        try {
+            let data = await fetch(`http://localhost:8080/eliminar/1`, {method:"DELETE"});
+            let res = await data.json();
+            setTareas(res);
+            console.log(res)
+        } catch (error) {
+            console.log(error)
+        }
     }    
 
     return {
         form,
         tareas,
         handleChange,
-        handleClickDiv,
         handleClickLimpiar,
         getTareas,
         pushTarea,
         putTarea,
+        deleteTarea,
         completado
     }
 }

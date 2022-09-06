@@ -5,7 +5,7 @@ import TemaContext from '../context/TemaContext';
 import useFuncionalidad from '../hooks/useFuncionalidad';
 
 
-const Tarea = ({el, handleClickDiv}) => {
+const Tarea = ({el}) => {
     const {darkMode} = useContext(TemaContext);
     let {
         id,
@@ -15,15 +15,16 @@ const Tarea = ({el, handleClickDiv}) => {
     let { 
         putTarea, 
         completado, 
+        deleteTarea
     } = useFuncionalidad(complete)
     return (
         <div className={darkMode ? moduleTarea.todoTemplateDarkMode : moduleTarea.todoTemplate}  >
             <div className={moduleTarea.divTemplate} >
-                <div onClick={() => putTarea(id, el)} className={`${moduleTarea.tachaTarea} ${completado ? moduleTarea.cheked : ""}`}></div>
-                <p className={`${darkMode ? moduleTarea.tareaDarkMode : moduleTarea.tarea} ${completado ? moduleTarea.tareaCheked : ""}`} 
+                <div onClick={() => putTarea(id, el)} className={`${moduleTarea.tachaTarea} ${completado && moduleTarea.cheked}`}></div>
+                <p className={`${darkMode ? moduleTarea.tareaDarkMode : moduleTarea.tarea} ${completado && moduleTarea.tareaCheked }`} 
                 >{tarea}</p>
             </div>
-            <img src={imagen} alt="icono de cierre" className={moduleTarea.btnborrarTarea} onClick={() => handleClickDiv(el)}/>
+            <img src={imagen} alt="icono de cierre" className={moduleTarea.btnborrarTarea} onClick={() => deleteTarea(el)}/>
         </div>
     )
 }

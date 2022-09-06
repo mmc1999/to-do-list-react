@@ -14,15 +14,13 @@ const FormAgregarTarea = () => {
         tareas,
         handleChange,
         handleClickLimpiar,
-        handleClickDiv,
         getTareas,
         pushTarea,
     } = useFuncionalidad();
     
     useEffect(() => {
       getTareas();
-    }, [])
-    
+    }, [tareas])
     return (
         <>
             <form className={darkMode ? moduleForm.formularioDarkMode : moduleForm.formulario} onSubmit={pushTarea}>
@@ -37,7 +35,7 @@ const FormAgregarTarea = () => {
                     />
             </form>
             <section className={darkMode ? listaTareaModule.seccionListaDeTareasDarkMode : listaTareaModule.seccionListaDeTareas}>
-                {tareas.length == 0 || null || "" 
+                {tareas.length === 0 
                 ?   <div className={darkMode ? listaTareaModule.divdarkMode : listaTareaModule.divSinTarea}>
                         <p className={darkMode ? listaTareaModule.sinTareaDarkMode : listaTareaModule.sinTarea}>Sin tareas pendientes</p>
                     </div>
@@ -46,12 +44,11 @@ const FormAgregarTarea = () => {
                         key={el.id} 
                         el={el}
                         tareas={tareas} 
-                        handleClickDiv={handleClickDiv}
                     /> 
                 )
                 }
                 {
-                    tareas.length == 0 
+                    tareas.length === 0
                     ? "" 
                     : <CantidadTareasOLimpiar 
                         cantidadTareas={tareas.length} 
