@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import useFuncionalidad from '../hooks/useFuncionalidad';
 import moduleForm from "./FormAgregarTarea.module.css"
 import listaTareaModule from "./ListaTarea.module.css";
@@ -13,14 +13,19 @@ const FormAgregarTarea = () => {
         form,
         tareas,
         handleChange,
-        handleSubmit,
         handleClickLimpiar,
-        handleClickDiv
+        handleClickDiv,
+        getTareas,
+        pushTarea,
     } = useFuncionalidad();
-
+    
+    useEffect(() => {
+      getTareas();
+    }, [])
+    
     return (
         <>
-            <form className={darkMode ? moduleForm.formularioDarkMode : moduleForm.formulario} onSubmit={handleSubmit}>
+            <form className={darkMode ? moduleForm.formularioDarkMode : moduleForm.formulario} onSubmit={pushTarea}>
                 <button className={moduleForm.boton}></button>
                 <input 
                     type="text" 
