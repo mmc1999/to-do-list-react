@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 
+const urlBase = "https://primerfullstack.herokuapp.com/"
+
 const useFuncionalidad = (complete) => {
     let tareasRealizar = Boolean(JSON.parse(localStorage.getItem("tareas"))) == false
     ? [] 
@@ -17,7 +19,7 @@ const useFuncionalidad = (complete) => {
     
     const getTareas = async () => {
         try {
-            let data = await fetch("http://localhost:8080/api/tareas");
+            let data = await fetch(`${urlBase}api/tareas`);
             let res = await data.json();
             if(Object.keys(res).length === 0) return setTareas([])
             setTareas(res);
@@ -30,7 +32,7 @@ const useFuncionalidad = (complete) => {
         e.preventDefault();
         handleChange(e);
         try {
-            let data = await fetch("http://localhost:8080/api/tareas", {
+            let data = await fetch(`${urlBase}api/tareas`, {
                 method:"POST",
                 body:JSON.stringify(form),
                 headers: {
@@ -47,7 +49,7 @@ const useFuncionalidad = (complete) => {
 
     const putTarea = async (id, tarea) => {
         try {
-            let data = await fetch(`http://localhost:8080/${id}`, {
+            let data = await fetch(`${urlBase}${id}`, {
                 method:"PUT",
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -66,7 +68,7 @@ const useFuncionalidad = (complete) => {
 
     const deleteTarea = async (el) => {
         try {
-            let data = await fetch(`http://localhost:8080/${el.id}`, {method:"DELETE"});
+            let data = await fetch(`${urlBase}${el.id}`, {method:"DELETE"});
             let res = await data.json();
             setTareas(res);
         } catch (error) {
@@ -98,7 +100,7 @@ const useFuncionalidad = (complete) => {
 
     const handleClickLimpiar = async () => {
         try {
-            let data = await fetch(`http://localhost:8080/eliminar/1`, {method:"DELETE"});
+            let data = await fetch(`${urlBase}eliminar/1`, {method:"DELETE"});
             let res = await data.json();
             setTareas(res);
             console.log(res)
