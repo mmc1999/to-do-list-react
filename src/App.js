@@ -1,12 +1,14 @@
 import React, {useContext} from 'react';
-import appModule from './App.module.css';
-import "./index.css"
 import { Routes, Route } from "react-router-dom";
+
+import appModule from './App.module.css';
+import TemaContext from './context/TemaContext';
+import "./index.css"
+
 import Home from '../src/pages/Home';
-import Login from '../src/pages/Login';
 import Register from '../src/pages/Register';
 import Error from '../src/pages/Error';
-import TemaContext from './context/TemaContext';
+import Logo from './pages/Logo';
 
 function App() {
   const {darkMode} = useContext(TemaContext);
@@ -15,7 +17,7 @@ function App() {
     <div className={appModule.div}>
         <Routes>
           <Route path='/' element={<Home/>} />
-          <Route path='/login' element={<Login />} />
+          <Route path='/login' element={<Logo />} />
           <Route path='/register' element={<Register/>} />
           <Route path='*' element={<Error />} />
         </Routes>

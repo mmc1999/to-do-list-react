@@ -18,7 +18,6 @@ const Registro = () => {
         onSubmit={(values,{resetForm}) => {
           createUser(values);
           resetForm();
-          
         }}
       >
         {
