@@ -1,6 +1,7 @@
 .div {
     display: flex;
     justify-content: space-between;
+    flex-direction: inherit;
     align-items: center;
     padding: 5px 20px;
 }

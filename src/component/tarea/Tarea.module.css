@@ -2,6 +2,7 @@
     height: 40px;
     padding: var(--padding);
     display: flex;
+    flex-direction: inherit;
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid var(--background-colorMain);
@@ -13,6 +14,7 @@
     height: 40px;
     padding: var(--padding);
     display: flex;
+    
     justify-content: space-between;
     align-items: center;
     border-radius: var(--border-radius);
@@ -49,7 +51,7 @@
     cursor: pointer;
 }
 .cheked::before {
-    content: url("../images/icon-check.svg");
+    content: url("../../images/icon-check.svg");
     margin: 0px auto;
     position: absolute;
     bottom: 1px;    

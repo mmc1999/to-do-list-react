@@ -12,24 +12,36 @@
     --background-colorSectionDark: hsl(235, 24%, 19%);
     --letra-colorDarkMode:hsl(236, 33%, 92%);
 }
-body {
+
+.main {
     font-family: 'Josefin Sans', sans-serif;
     background-color: var(--background-colorMain);
     background-image: url("./images/bg-mobile-light.jpg");
     background-position: left 0vw top 0vh;
     background-repeat: no-repeat;
     background-size: 100% 180px;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
 }
-body.darkMode {
+.mainDarkMode {
     background-image: url("./images/bg-mobile-dark.jpg");
     background-color: var(--background-colorMainDark);
 }
-
+.div {
+    margin: 0% auto;
+    width: 300px;
+}
 @media all and (min-width:900px) {
-    body {
+    .main {
         background-image: url("./images/bg-desktop-light.jpg");
     }
-    body.darkMode {
+    .mainDarkMode {
         background-image: url("./images/bg-desktop-dark.jpg");
+    }
+    .div {
+        width: 600px;
     }
 }

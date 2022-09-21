@@ -1,8 +1,8 @@
-import React, {useContext, useRef} from 'react';
+import React, {useContext} from 'react';
 import moduleTarea from "./Tarea.module.css";
-import imagen from "../images/icon-cross.svg"
-import useChequear from '../hooks/useChequear';
-import TemaContext from '../context/TemaContext';
+import imagen from "../../images/icon-cross.svg"
+import useChequear from '../../hooks/useChequear';
+import TemaContext from '../../context/TemaContext';
 
 
 const Tarea = ({el, tareas, handleClickDiv}) => {

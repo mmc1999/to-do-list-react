@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import TemaContext from '../context/TemaContext';
+import TemaContext from '../../context/TemaContext';
 import cantidadTareasOLimpiar from "./CantidadTareasOLimpiar.module.css";
 
 const CantidadTareasOLimpiar = ({cantidadTareas, handleClickLimpiar}) => {

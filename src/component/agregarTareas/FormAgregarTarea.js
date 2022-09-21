@@ -1,10 +1,9 @@
 import React, { useContext } from 'react';
-import useFuncionalidad from '../hooks/useFuncionalidad';
+import useFuncionalidad from '../../hooks/useFuncionalidad';
 import moduleForm from "./FormAgregarTarea.module.css"
-import listaTareaModule from "./ListaTarea.module.css";
-import Tarea from './Tarea';
-import CantidadTareasOLimpiar from './CantidadTareasOLimpiar';
-import ThemeContext from '../context/TemaContext';
+import Tarea from '../tarea/Tarea';
+import CantidadTareasOLimpiar from '../limpiarTareas/CantidadTareasOLimpiar';
+import ThemeContext from '../../context/TemaContext';
 
 
 const FormAgregarTarea = () => {
@@ -31,10 +30,10 @@ const FormAgregarTarea = () => {
                     onChange={handleChange}
                     />
             </form>
-            <section className={darkMode ? listaTareaModule.seccionListaDeTareasDarkMode : listaTareaModule.seccionListaDeTareas}>
-                {tareas.length == 0 || null || "" 
-                ?   <div className={darkMode ? listaTareaModule.divdarkMode : listaTareaModule.divSinTarea}>
-                        <p className={darkMode ? listaTareaModule.sinTareaDarkMode : listaTareaModule.sinTarea}>Sin tareas pendientes</p>
+            <section className={darkMode ? moduleForm.seccionListaDeTareasDarkMode : moduleForm.seccionListaDeTareas}>
+                {tareas.length === 0 || null || "" 
+                ?   <div className={darkMode ? moduleForm.divdarkMode : moduleForm.divSinTarea}>
+                        <p className={darkMode ? moduleForm.sinTareaDarkMode : moduleForm.sinTarea}>Sin tareas pendientes</p>
                     </div>
                 : tareas.map(el => 
                     <Tarea 
@@ -46,7 +45,7 @@ const FormAgregarTarea = () => {
                 )
                 }
                 {
-                    tareas.length == 0 
+                    tareas.length === 0 
                     ? "" 
                     : <CantidadTareasOLimpiar 
                         cantidadTareas={tareas.length} 
