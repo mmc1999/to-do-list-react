@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import useFuncionalidad from '../../hooks/useFuncionalidad';
+import React, { useContext, useEffect } from 'react';
+import useFetchTask from '../../hooks/useFetchTask';
 import moduleForm from "./FormAgregarTarea.module.css"
 import Tarea from '../tarea/Tarea';
 import CantidadTareasOLimpiar from '../limpiarTareas/CantidadTareasOLimpiar';
@@ -15,7 +15,7 @@ const FormAgregarTarea = () => {
         handleSubmit,
         handleClickLimpiar,
         handleClickDiv
-    } = useFuncionalidad();
+    } = useFetchTask();
 
     return (
         <>
@@ -41,11 +41,10 @@ const FormAgregarTarea = () => {
                         el={el}
                         tareas={tareas} 
                         handleClickDiv={handleClickDiv}
-                    /> 
-                )
-                }
+                    />
+                )}
                 {
-                    tareas.length === 0 
+                    tareas.length === 0 || null || "" 
                     ? "" 
                     : <CantidadTareasOLimpiar 
                         cantidadTareas={tareas.length} 
