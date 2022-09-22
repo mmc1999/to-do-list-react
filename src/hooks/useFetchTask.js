@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
+import ThemeContext from '../context/TemaContext';
 
 //const urlBase = "https://primerfullstack.herokuapp.com/"
 let urlBase = "http://localhost:8080/"
@@ -11,14 +12,20 @@ const initialForm = {
 const useFetchTask = (complete) => {
     const [form, setForm] = useState(initialForm);
     const [tareas, setTareas] = useState([]);
-    const [completado, setCompletado] = useState(complete);
-    
+    let {
+        id,
+        token
+    } = useContext(ThemeContext)
+
     //aca hay que mandar el id del usuario para traer las tareas del usuario
     const getTareas = async () => {
         try {
-            let data = await fetch(`${urlBase}api/task`);
+            let data = await fetch(`${urlBase}api/task`, {
+                headers: {
+                    "id":id
+                }
+            });
             let res = await data.json();
-            console.log(res)
             setTareas(res);
         } catch (error) {
             console.log(error);
@@ -29,36 +36,40 @@ const useFetchTask = (complete) => {
         e.preventDefault();
         handleChange(e);
         try {
-            let data = await fetch(`${urlBase}api/tareas`, {
+            let data = await fetch(`${urlBase}api/task`, {
                 method:"POST",
                 body:JSON.stringify(form),
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
+                    "id":id,
+                    "token":token
                 }
             });
             let res = await data.json();
-            setTareas([...tareas, res]);
+            setTareas([...tareas, res.task]);
+            setForm(initialForm);
         } catch (error) {
             console.log(error);
         }
-        setForm(initialForm);
+        
     }
 
     const putTarea = async (tarea) => {
-        console.log(tarea)
         try {
-            let data = await fetch(`${urlBase}api/tareas/${tarea.id}`, {
+            let data = await fetch(`${urlBase}api/task/${tarea.id}`, {
                 method:"PUT",
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 
+                    'Content-Type': 'application/json',
+                },
                 body: JSON.stringify({
-                    id:tarea._id,
+                    id:tarea.id,
                     tarea:tarea.tarea,
-                    complete: tarea.complete
+                    complete: tarea.complete 
                 })
-            });
+            })
             let res = await data.json();
-            setTareas([...tareas, res]);
-            setCompletado(res.complete);
+            console.log(res)
+            console.log(tareas)
         } catch (error) {
             console.log(error)
         }
@@ -66,7 +77,7 @@ const useFetchTask = (complete) => {
 
     const deleteTarea = async (el) => {
         try {
-            await fetch(`${urlBase}api/tareas/tarea/${el.id}`, {method:"DELETE"});
+            await fetch(`${urlBase}api/task/${el.id}`, {method:"DELETE"});
         } catch (error) {
             console.log(error)
         }
@@ -88,12 +99,6 @@ const useFetchTask = (complete) => {
         }
     }    
 
-
-    useEffect(() => {
-        getTareas();
-        console.log(tareas)
-    }, [getTareas])
-
     return {
         form,
         tareas,
@@ -103,7 +108,7 @@ const useFetchTask = (complete) => {
         pushTarea,
         putTarea,
         deleteTarea,
-        completado
+    
     }
 }
 export default useFetchTask

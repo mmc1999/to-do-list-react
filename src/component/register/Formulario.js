@@ -13,7 +13,7 @@ const Formulario = ({values,errors,handleChange, handleSubmit}) => {
             <label id='nombreUsuario' className={registroModule.label}>Username</label>
             <input 
                 type="text" 
-                placeholder='Username' 
+                placeholder='Type your username' 
                 className={registroModule.input}
                 value={values.nombreUsuario}
                 onChange={handleChange}
@@ -26,7 +26,7 @@ const Formulario = ({values,errors,handleChange, handleSubmit}) => {
             <label id='correo' className={registroModule.label}>Email</label>
             <input 
                 type="email" 
-                placeholder='correo' 
+                placeholder='Type your email' 
                 className={registroModule.input}
                 value={values.correo}
                 onChange={handleChange}
@@ -39,7 +39,7 @@ const Formulario = ({values,errors,handleChange, handleSubmit}) => {
             <label id='password' className={registroModule.label}>Password</label>
             <input 
                 type="password" 
-                placeholder='contraseña' 
+                placeholder='Type your password' 
                 className={registroModule.input}
                 value={values.password}
                 onChange={handleChange}
