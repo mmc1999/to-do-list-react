@@ -30,6 +30,10 @@
     background-image: url("./images/bg-mobile-dark.jpg");
     background-color: var(--background-colorMainDark);
 }
+.mainBackground {
+    background: rgb(97,216,222);
+    background: linear-gradient(22deg, rgba(97,216,222,1) 0%, rgba(116,121,229,1) 50%, rgba(223,57,245,1) 100%);
+}
 .div {
     margin: 0% auto;
     width: 300px;
@@ -40,6 +44,10 @@
     }
     .mainDarkMode {
         background-image: url("./images/bg-desktop-dark.jpg");
+    }
+    .mainBackground {
+        background: rgb(97,216,222);
+        background: linear-gradient(22deg, rgba(97,216,222,1) 0%, rgba(116,121,229,1) 50%, rgba(223,57,245,1) 100%);
     }
     .div {
         width: 600px;

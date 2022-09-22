@@ -12,8 +12,9 @@ import Logo from './pages/Logo';
 
 function App() {
   const {darkMode} = useContext(TemaContext);
+  let strage = localStorage.getItem("token");
   return (
-  <main className={`${appModule.main} ${darkMode && appModule.mainDarkMode}`}>
+  <main className={`${appModule.main} ${darkMode && appModule.mainDarkMode} ${!strage && appModule.mainBackground}`}>
     <div className={appModule.div}>
         <Routes>
           <Route path='/' element={<Home/>} />
