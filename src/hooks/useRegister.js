@@ -9,9 +9,9 @@ const url = "http://localhost:8080";
 const useRegister = () => {
     const navigate = useNavigate();
     let schema = object({
-        nombreUsuario: string().min(3, "El minimo de caracteres para el nombre de usuario es 3").required("El campo es obligatorio"),
-        correo: string().email("El correo debe ser valido").required("El campo es obligatorio"),
-        password: string().min(4, "El minimo de caracteres es 4").required("El campo es obligatorio"),
+        nombreUsuario: string().min(3, "the minimum of characters must be 3").required("required field"),
+        correo: string().email("Invalid email").required("required field"),
+        password: string().min(4, "the minimum of characters must be 4").required("required field"),
     });
 
     const createUser = async (values) => {

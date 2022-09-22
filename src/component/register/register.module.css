@@ -1,25 +1,43 @@
 .divPrincipal {
-    border: thin solid gray;
     border-radius: 10px;
-    padding: 10px;
+    padding: 30px 20px;
     width: 90%;
     margin: 0% auto;
     background-color: white;
+    box-shadow: 2px 2px 2px 5px rgba(128, 128, 128, 0.218);
 }
 .h1 {
+    text-align: center;
     font-size: 25px;
+    margin-bottom: 30px;
 }
 .form {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
+.divInput {
+    position: relative;
+}
+.label {
+    font-size: 12px;
+    font-weight: 500;
+}
 .input {
     width: 100%;
     padding: 10px;
-    border-radius: 10px;
+    padding-left: 30px;
     outline: none;
-    border: thin solid gray;
+    border: none;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.23);
+}
+.input::placeholder {
+    opacity: 0.6;
+}
+.icono {
+    position: absolute;
+    top: 29px;
+    left: 7px;
 }
 .msgError {
     margin: 0%;
@@ -30,4 +48,28 @@
 .login {
     text-decoration: none;
     color: black;
+    text-align: center;
+    margin: 0% auto;
+}
+.buton {
+    margin-top: 20px;
+    background: rgb(97,216,222);
+    background: linear-gradient(90deg, rgba(97,216,222,1) 0%, rgba(116,121,229,1) 50%, rgba(223,57,245,1) 100%);
+    width: 100%;
+    padding: 9px 7px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+}
+.or {
+    text-align: center;
+    font-size: 12px;
+    opacity: 0.7;
+    margin: 30px 0px;
+}
+.divLink {
+    display: flex;
 }

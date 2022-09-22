@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import loginModule from "./login.module.css"
-import userImage from "../../images/user.png";
+import correoImage from "../../images/correo-electronico.png";
 import passwordImage from "../../images/iconPassword.png";
 
 const Formulario = ({values, errors, handleChange, handleSubmit}) => {
@@ -18,7 +18,7 @@ const Formulario = ({values, errors, handleChange, handleSubmit}) => {
                 onChange={handleChange}
                 name="correo"
             />
-            <img src={userImage} alt="Imagen del usuario" className={loginModule.icono} />
+            <img src={correoImage} alt="Imagen del usuario" className={loginModule.icono} />
             {errors.correo && <p className={loginModule.msgError}>{errors.correo + "*"}</p>}
         </div>
         <div className={loginModule.divInput}>

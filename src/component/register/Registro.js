@@ -11,8 +11,7 @@ const Registro = () => {
   } = useRegister();
   return (
     <div className={registroModule.divPrincipal}>
-      <h1 className={registroModule.h1}>Registrese</h1>
-      <hr />
+      <h1 className={registroModule.h1}>Registration</h1>
       <Formik 
         initialValues={{ nombreUsuario:"",correo: "", password: ""}}
         validationSchema={schema}
