@@ -22,7 +22,6 @@ const ThemeProvider = ({children}) => {
             }
     }, [darkMode]);
     
-
     const data = {darkMode, setDarkMode, setId, id, token, setToken};
 
     return (<TemaContext.Provider value={data}>{children}</TemaContext.Provider>)

@@ -1,7 +1,6 @@
 import React, {useContext} from 'react';
 import moduleTarea from "./Tarea.module.css";
 import imagen from "../../images/icon-cross.svg"
-import useChequear from '../../hooks/useChequear';
 import TemaContext from '../../context/TemaContext';
 
 

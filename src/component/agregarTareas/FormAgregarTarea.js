@@ -17,7 +17,6 @@ const FormAgregarTarea = () => {
         deleteTarea,
         getTareas,
         putTarea,
-        completado
     } = useFetchTask();
     
     useEffect(() => {

@@ -15,8 +15,8 @@ const useFetchTask = (complete) => {
     let {
         id,
         token
-    } = useContext(ThemeContext)
-
+    } = useContext(ThemeContext);
+    
     //aca hay que mandar el id del usuario para traer las tareas del usuario
     const getTareas = async () => {
         try {
@@ -56,7 +56,7 @@ const useFetchTask = (complete) => {
 
     const putTarea = async (tarea) => {
         try {
-            let data = await fetch(`${urlBase}api/task/${tarea.id}`, {
+             await fetch(`${urlBase}api/task/${tarea.id}`, {
                 method:"PUT",
                 headers: { 
                     'Content-Type': 'application/json',
@@ -67,9 +67,6 @@ const useFetchTask = (complete) => {
                     complete: tarea.complete 
                 })
             })
-            let res = await data.json();
-            console.log(res)
-            console.log(tareas)
         } catch (error) {
             console.log(error)
         }
@@ -93,7 +90,7 @@ const useFetchTask = (complete) => {
 
     const handleClickLimpiar = async () => {
         try {
-            await fetch(`${urlBase}api/tareas/eliminar/1`, {method:"DELETE"});
+            await fetch(`${urlBase}api/task/eliminartodo/1`, {method:"DELETE"});
         } catch (error) {
             console.log(error)
         }
