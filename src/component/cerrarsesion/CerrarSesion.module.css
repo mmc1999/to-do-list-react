@@ -1,0 +1,14 @@
+.div {
+    width: 100%;
+    margin-top: 100px;
+}
+.link {
+    display: block;
+    text-align: center;
+    width: 100%;
+    background-color: #ff00009c;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+}

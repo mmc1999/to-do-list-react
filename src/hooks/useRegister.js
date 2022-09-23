@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import {object, string} from 'yup';
 
 
-const url = "http://localhost:8080";
+const url = "https://tareas-register-login.herokuapp.com/";
 
 const useRegister = () => {
     const navigate = useNavigate();
@@ -16,7 +16,7 @@ const useRegister = () => {
 
     const createUser = async (values) => {
         try {
-            let data = await fetch(`${url}/register/user`, {
+            let data = await fetch(`${url}register/user`, {
                 method: 'POST',
                 headers: {
                 'Accept': 'application/json',

@@ -20,6 +20,8 @@ const ThemeProvider = ({children}) => {
                 setDarkMode(false)
                 document.body.classList.remove("darkMode");
             }
+
+            return () => setDarkMode(initialTema)
     }, [darkMode]);
     
     const data = {darkMode, setDarkMode, setId, id, token, setToken};

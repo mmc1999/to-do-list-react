@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import { Routes, Route } from "react-router-dom";
 
 import appModule from './App.module.css';
@@ -11,10 +11,9 @@ import Error from '../src/pages/Error';
 import Logo from './pages/Logo';
 
 function App() {
-  const {darkMode} = useContext(TemaContext);
-  let strage = localStorage.getItem("token");
+  const {darkMode, id} = useContext(TemaContext);  
   return (
-  <main className={`${appModule.main} ${darkMode && appModule.mainDarkMode} ${!strage && appModule.mainBackground}`}>
+  <main className={`${appModule.main} ${darkMode && appModule.mainDarkMode} ${!id && appModule.mainBackground}`}>
     <div className={appModule.div}>
         <Routes>
           <Route path='/' element={<Home/>} />

@@ -31,13 +31,25 @@
     background-color: var(--background-colorMainDark);
 }
 .mainBackground {
+    background-image: none;
     background: rgb(97,216,222);
     background: linear-gradient(22deg, rgba(97,216,222,1) 0%, rgba(116,121,229,1) 50%, rgba(223,57,245,1) 100%);
 }
 .div {
+    height: 100vh;
     margin: 0% auto;
-    width: 300px;
+    width: 90%;
+    position: relative;
 }
+button, a {
+    cursor: pointer;
+}
+@media all and (min-width:600px) {
+    .div {
+        width: 400px;
+    }
+}
+
 @media all and (min-width:900px) {
     .main {
         background-image: url("./images/bg-desktop-light.jpg");
@@ -46,6 +58,7 @@
         background-image: url("./images/bg-desktop-dark.jpg");
     }
     .mainBackground {
+        background-image: none;
         background: rgb(97,216,222);
         background: linear-gradient(22deg, rgba(97,216,222,1) 0%, rgba(116,121,229,1) 50%, rgba(223,57,245,1) 100%);
     }

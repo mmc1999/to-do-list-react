@@ -1,8 +1,8 @@
-import React, {useState, useEffect, useContext} from 'react';
+import {useState, useEffect, useContext, useCallback} from 'react';
 import ThemeContext from '../context/TemaContext';
 
 //const urlBase = "https://primerfullstack.herokuapp.com/"
-let urlBase = "http://localhost:8080/"
+let urlBase = "https://tareas-register-login.herokuapp.com/"
 
 const initialForm = {
         tarea:"",
@@ -18,19 +18,28 @@ const useFetchTask = (complete) => {
     } = useContext(ThemeContext);
     
     //aca hay que mandar el id del usuario para traer las tareas del usuario
-    const getTareas = async () => {
-        try {
-            let data = await fetch(`${urlBase}api/task`, {
-                headers: {
-                    "id":id
+
+    useEffect(() => {
+        let mounted = true
+        const getTareas = async () => {
+            try {
+                let data = await fetch(`${urlBase}api/task`, {
+                    headers: {
+                        "id":id
+                        }
+                });
+                let res = await data.json();
+                if(mounted){
+                    setTareas(res);
                 }
-            });
-            let res = await data.json();
-            setTareas(res);
-        } catch (error) {
-            console.log(error);
+            } catch (error) {
+                console.log(error);
+            }
         }
-    }
+        getTareas();
+        return () => mounted = false
+    }, [tareas])
+    
 
     const pushTarea = async (e) => {
         e.preventDefault();
@@ -67,6 +76,7 @@ const useFetchTask = (complete) => {
                     complete: tarea.complete 
                 })
             })
+            
         } catch (error) {
             console.log(error)
         }
@@ -96,15 +106,24 @@ const useFetchTask = (complete) => {
         }
     }    
 
+    /*useEffect(() => {
+        let mounted = true;
+        if(mounted){
+            getTareas()
+        }
+        return () => mounted = false
+    },[setTareas])*/
+
     return {
         form,
         tareas,
         handleChange,
         handleClickLimpiar,
-        getTareas,
         pushTarea,
         putTarea,
         deleteTarea,
+        setTareas,
+        //getTareas
     
     }
 }

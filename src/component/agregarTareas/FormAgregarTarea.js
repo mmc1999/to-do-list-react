@@ -15,13 +15,11 @@ const FormAgregarTarea = () => {
         pushTarea,
         handleClickLimpiar,
         deleteTarea,
-        getTareas,
         putTarea,
+        getTareas
     } = useFetchTask();
     
-    useEffect(() => {
-        getTareas()
-    }, [tareas])
+    
 
     return (
         <>
@@ -29,7 +27,7 @@ const FormAgregarTarea = () => {
                 <button className={moduleForm.boton}></button>
                 <input 
                     type="text" 
-                    placeholder='Crea una nueva tarea' 
+                    placeholder='Create a new task' 
                     name='tarea' 
                     value={form.tarea} 
                     className={darkMode ? moduleForm.inputDarkMode : moduleForm.input} 
@@ -37,7 +35,7 @@ const FormAgregarTarea = () => {
                     />
             </form>
             <section className={darkMode ? moduleForm.seccionListaDeTareasDarkMode : moduleForm.seccionListaDeTareas}>
-                {tareas.length === 0 || null || "" | {}
+                {tareas.length === 0 || null || "" 
                 ?   <div className={darkMode ? moduleForm.divdarkMode : moduleForm.divSinTarea}>
                         <p className={darkMode ? moduleForm.sinTareaDarkMode : moduleForm.sinTarea}>Sin tareas pendientes</p>
                     </div>

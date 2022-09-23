@@ -4,7 +4,7 @@ import {object, string} from 'yup';
 import { useNavigate } from 'react-router-dom';
 import ThemeContext from '../context/TemaContext';
 
-const url = "http://localhost:8080";
+const url = "https://tareas-register-login.herokuapp.com/";
 
 const useLogin = () => {
     let {
@@ -19,7 +19,7 @@ const useLogin = () => {
 
     const loginUser = async (values) => {
         try {
-            let data = await fetch(`${url}/auth/user`, {
+            let data = await fetch(`${url}auth/user`, {
                 method: 'POST',
                 headers: {
                 'Accept': 'application/json',
@@ -28,7 +28,6 @@ const useLogin = () => {
                 body: JSON.stringify(values),
             });
             let res = await data.json();
-            console.log(res)
             if(!res.ok) {
                 throw res
             }
