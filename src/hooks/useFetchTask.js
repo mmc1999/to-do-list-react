@@ -1,15 +1,16 @@
-import {useState, useEffect, useContext, useCallback} from 'react';
+import {useState, useEffect, useContext} from 'react';
 import ThemeContext from '../context/TemaContext';
 
-//const urlBase = "https://primerfullstack.herokuapp.com/"
-let urlBase = "https://tareas-register-login.herokuapp.com/"
+const urlBase = "http://localhost:8080/"
+//let urlBase = "https://tareas-register-login.herokuapp.com/"
 
 const initialForm = {
         tarea:"",
         complete:false
     };
 
-const useFetchTask = (complete) => {
+const useFetchTask = () => {
+    const [error, setError] = useState("");
     const [form, setForm] = useState(initialForm);
     const [tareas, setTareas] = useState([]);
     let {
@@ -44,6 +45,13 @@ const useFetchTask = (complete) => {
     const pushTarea = async (e) => {
         e.preventDefault();
         handleChange(e);
+        if(form.tarea.length <= 2) {
+            setError("the field must have a minimum of 3 characters")
+            setTimeout(() => {
+                setError("")
+            }, 2000)
+            return
+        }
         try {
             let data = await fetch(`${urlBase}api/task`, {
                 method:"POST",
@@ -105,15 +113,7 @@ const useFetchTask = (complete) => {
             console.log(error)
         }
     }    
-
-    /*useEffect(() => {
-        let mounted = true;
-        if(mounted){
-            getTareas()
-        }
-        return () => mounted = false
-    },[setTareas])*/
-
+    
     return {
         form,
         tareas,
@@ -123,8 +123,7 @@ const useFetchTask = (complete) => {
         putTarea,
         deleteTarea,
         setTareas,
-        //getTareas
-    
+        error
     }
 }
 export default useFetchTask

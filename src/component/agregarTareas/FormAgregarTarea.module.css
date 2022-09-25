@@ -127,3 +127,9 @@
     border-bottom: 2px solid var(--background-colorMain);
     border-radius: var(--border-radius);
 }
+.msgError {
+    color: white;
+    margin-top: 2px;
+    margin-bottom: 0px;
+    font-size: 12px;
+}

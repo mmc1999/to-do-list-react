@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import useFetchTask from '../../hooks/useFetchTask';
 import moduleForm from "./FormAgregarTarea.module.css"
 import Tarea from '../tarea/Tarea';
@@ -16,11 +16,8 @@ const FormAgregarTarea = () => {
         handleClickLimpiar,
         deleteTarea,
         putTarea,
-        getTareas
+        error
     } = useFetchTask();
-    
-    
-
     return (
         <>
             <form className={darkMode ? moduleForm.formularioDarkMode : moduleForm.formulario} onSubmit={pushTarea}>
@@ -34,10 +31,11 @@ const FormAgregarTarea = () => {
                     onChange={handleChange}
                     />
             </form>
+            {error && <p className={moduleForm.msgError}>{error}</p>}
             <section className={darkMode ? moduleForm.seccionListaDeTareasDarkMode : moduleForm.seccionListaDeTareas}>
                 {tareas.length === 0 || null || "" 
                 ?   <div className={darkMode ? moduleForm.divdarkMode : moduleForm.divSinTarea}>
-                        <p className={darkMode ? moduleForm.sinTareaDarkMode : moduleForm.sinTarea}>Sin tareas pendientes</p>
+                        <p className={darkMode ? moduleForm.sinTareaDarkMode : moduleForm.sinTarea}>No pending tasks</p>
                     </div>
                 : tareas.map(el => 
                     <Tarea 

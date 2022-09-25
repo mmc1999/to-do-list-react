@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import {object, string} from 'yup';
 
-
-const url = "https://tareas-register-login.herokuapp.com/";
+const url = "http://localhost:8080/"
+//let url = "https://tareas-register-login.herokuapp.com/"
 
 const useRegister = () => {
     const navigate = useNavigate();
