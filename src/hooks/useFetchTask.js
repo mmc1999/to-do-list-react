@@ -1,8 +1,8 @@
 import {useState, useEffect, useContext} from 'react';
 import ThemeContext from '../context/TemaContext';
 
-const urlBase = "http://localhost:8080/"
-//let urlBase = "https://tareas-register-login.herokuapp.com/"
+//const urlBase = "http://localhost:8080/"
+let urlBase = "https://tareas-register-login.herokuapp.com/"
 
 const initialForm = {
         tarea:"",
